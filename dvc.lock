@@ -60,47 +60,47 @@ stages:
       size: 1497
     params:
       params.yaml:
-        feature_engg.max_features: 1500
+        feature_engg.max_features: 150
     outs:
     - path: data\interim\test_bow.csv
       hash: md5
-      md5: b4d2ec89dba25be9b16abde15b716625
-      size: 12465844
+      md5: 9f5c59e46d59d53f200b2a63476a47ac
+      size: 1257644
     - path: data\interim\train_bow.csv
       hash: md5
-      md5: c3f3e4bbed68c789258c9869889412af
-      size: 18694066
+      md5: c73a2b3c03eadbc303b992f04a4b8d9d
+      size: 1886066
   modelling:
     cmd: python src\models\modelling.py
     deps:
     - path: data\interim\train_bow.csv
       hash: md5
-      md5: c3f3e4bbed68c789258c9869889412af
-      size: 18694066
+      md5: c73a2b3c03eadbc303b992f04a4b8d9d
+      size: 1886066
     - path: src\models\modelling.py
       hash: md5
       md5: f2275ee595480ff0c676e86c348e29b0
       size: 655
     params:
       params.yaml:
-        modelling.max_depth: 20
-        modelling.n_estimators: 110
+        modelling.max_depth: 8
+        modelling.n_estimators: 10
     outs:
     - path: models\random_forest_model.pkl
       hash: md5
-      md5: 2368aafcadf84ae979af1e70f121bd31
-      size: 3318672
+      md5: 047d13fd17e6e08f917bfe4a4171d60d
+      size: 79252
   model_evaluation:
     cmd: python src\models\model_evaluation.py
     deps:
     - path: data\interim\test_bow.csv
       hash: md5
-      md5: b4d2ec89dba25be9b16abde15b716625
-      size: 12465844
+      md5: 9f5c59e46d59d53f200b2a63476a47ac
+      size: 1257644
     - path: models\random_forest_model.pkl
       hash: md5
-      md5: 2368aafcadf84ae979af1e70f121bd31
-      size: 3318672
+      md5: 047d13fd17e6e08f917bfe4a4171d60d
+      size: 79252
     - path: src\models\model_evaluation.py
       hash: md5
       md5: ce6e21a3e2e10eba3c6ebbd45d15e6c8
@@ -108,5 +108,5 @@ stages:
     outs:
     - path: reports\metrics.json
       hash: md5
-      md5: 3dab4e1508eac1e095dcbb9b0f02c562
+      md5: 52feb6872a2d027e804e4ad4f62fd892
       size: 149
