@@ -81,7 +81,7 @@ target/
 /model/
 /.dvc/cache
 /reports/
-
+params.yaml
 # Mac OS-specific storage files
 .DS_Store
 

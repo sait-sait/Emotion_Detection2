@@ -11,7 +11,7 @@ with open("params.yaml","r") as file:
 n_estimators = params['modelling']['n_estimators']
 max_depth = params['modelling']['max_depth']
 
-train_data = pd.read_csv("data/interim/train_bow.csv")
+train_data = pd.read_csv("data/interim/train_tfidf.csv")
 
 x_train = train_data.drop(columns=['label']).values
 y_train = train_data['label'].values
